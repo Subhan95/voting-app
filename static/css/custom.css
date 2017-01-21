@@ -1,0 +1,17 @@
+i.fa.fa-github-square {
+	color: black;
+	cursor: pointer;
+}
+
+i.fa.fa-twitter-square {
+	font-size: 40px;
+}
+
+#auth {
+	margin-top: 20%;
+}
+
+a.delete-list-item {
+	background-color: #d9534f;
+	color: #fff;
+}

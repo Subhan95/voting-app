@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Make your polls today</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+	<script type="text/javascript" src="/js/charts.js"></script>
+
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<!-- JS file uncomment above -->
+
+	<link rel="stylesheet" type="text/css" href="/css/custom.css">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body style="padding: 2%;">
+<div class="container-fluid" style="min-height: 95%">
+	<div class="row">
+		<div class="col-xs-6 text-left"><h1>Poll app</h1></div>
+			
+		<div class="col-xs-6 text-right">
+			<h1>
+				<a class="btn btn-default" href="/">Home</a>
+				<% if (id) {%>
+					<a class="btn btn-default" href="/mypolls">My Polls</a>
+					<a class="btn btn-default" href="/polls/new">Create new poll</a>
+				<% } %>
+				<a href="/login"><%- symbol %></a>
+			</h1>
+		</div>
+	</div>
+	
+		<div class="row">
+			<div class="col-xs-4">
+			<h2 id="title"><%= poll.title %></h2>
+			<form method="POST" action="/polls/<%= poll.number %>">
+				<select class="form-control" name='choice'>
+					<option disabled="disabled" selected="selected" hidden>Your choice</option>
+					<% for (var i=0;i<poll.options.length;i++) { %>
+					<option value="<%= poll.options[i] %>"><%= poll.options[i] %></option>
+					<% } %>
+				</select>
+				<br>
+				<br>
+				<p>Or</p>
+				<label>Enter a custom option</label>
+				<input class="form-control" type="text" name="customOption"/>
+				<br>
+				<button class="btn btn-default" type="submit">Submit</button>
+			</form>
+			</div>
+
+			<div class="col-xs-2"></div>
+
+			<div class="col-xs-6 text-right">
+				<div id="chart_div">Loading...</div>
+			</div>
+
+		</div>
+		<br>
+		<a href="#" id="tweet"><i class="fa fa-twitter-square" aria-hidden="true"></i></a>
+
+</div>
+
+			
+</body>
+
+</html>

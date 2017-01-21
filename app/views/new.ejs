@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Make your polls today</title>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+	<script type="text/javascript" src="/js/auth.js"></script>
+
+	<!-- JS file uncomment above -->
+
+	<link rel="stylesheet" type="text/css" href="/css/custom.css">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body style="padding: 2%;">
+<div class="container-fluid" style="min-height: 95%">
+	<div class="row">
+		<div class="col-xs-6 text-left"><h1>Poll app</h1></div>
+		<div class="col-xs-6 text-right">
+		<h1>
+		<a class="btn btn-default" href="/mypolls">My Polls</a>
+		<a class="btn btn-default" href="/mypolls">My Polls</a>
+		<a class="btn btn-default" href="/polls/new">Create new poll</a>
+		<a href="/login"><%- symbol %></a></h1>
+
+	</div>
+	
+		<form method="POST" action="/polls/new">
+			<div class="form-group">
+				<label>Title</label>
+				<input class="form-control" type="text" name="title" required="true">
+			</div>
+
+			<br>
+
+			<div class="form-group">
+				<label>Options</label>
+				<textarea class="form-control" rows="10" cols="40" name="options" required="true"></textarea>
+			</div>
+
+			<button class="btn btn-default" type="submit">Submit</button>
+			
+		</form>
+</div>
+
+			
+</body>
+</html>
