@@ -10,7 +10,7 @@ A web application to make and share your polls. Share the polls and obtain real 
 2. [npm](https://www.npmjs.com)
 3. [mongodb](https://www.mongodb.com/)
 
-###Installing
+###Installation
 Clone the project
 
 ```git
