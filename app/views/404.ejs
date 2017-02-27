@@ -12,8 +12,6 @@
 
 	<script type="text/javascript" src="/js/auth.js"></script>
 
-	<!-- JS file uncomment above -->
-
 	<link rel="stylesheet" type="text/css" href="/css/custom.css">
 
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,19 +24,15 @@
 			
 		<div class="col-xs-6 text-right">
 		<h1>
-		<% if (id) {%>
-			<a class="btn btn-default" href="/mypolls">My Polls</a>
-			<a class="btn btn-default" href="/polls/new">Create new poll</a>
-		<% } %>
-		<a href="/login"><%- symbol %></a></h1>
+			<a class="btn btn-default" href="/">Home</a>
+		</h1>
 	</div>
 
 	</div>
 	
-		<div class="list-group">
-			<% polls.forEach(function(poll){ %>
-				<a href="/polls/<%= poll.number %>" class="list-group-item"><%= poll.title %></a>
-			<% }) %>
+		<div>
+			<p>Looks like the page you want does not exist</p>
+			<p><a href="/">Home</a></p>
 		</div>
 </div>
 <footer class="footer">

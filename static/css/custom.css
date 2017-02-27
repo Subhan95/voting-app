@@ -1,3 +1,17 @@
+html {
+	position: relative;
+	min-height: 100%;
+}
+body {
+	margin-bottom: 60px;
+}
+.footer {
+	position: absolute;
+	bottom: 0;
+	height: 60px;
+	background-color: #f5f5f5;
+}
+
 i.fa.fa-github-square {
 	color: black;
 	cursor: pointer;

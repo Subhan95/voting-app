@@ -175,6 +175,12 @@ module.exports = function(app, passport) {
 		successRedirect: '/',
 		failureRedirect: '/login'
 	}))
+
+	app.use(function(req, res, next) {
+		if (req.accepts('html')) {
+			res.render('404', { url: req.url });
+		}
+	})
 }
 
 // Custom middleware, if user clicks on /profile while logged out redirect to /
