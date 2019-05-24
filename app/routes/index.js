@@ -83,13 +83,13 @@ module.exports = function(app, passport) {
 					var url = 'https://avatars3.githubusercontent.com/u/'+req.user.github.id+'?v=3&s=40'
 					var u = '<img src="'+url+'"/>'
 					var userName = gh.github.username
-					console.log(userName)
+					// console.log(userName)
 					res.render('detail', {poll:doc, symbol: u, id: true, user: userName})
 				}
 				else {
 					var u = '<i class="fa fa-github-square"></i>'
 					var userName = gh.github.username
-					console.log(userName)
+					// console.log(userName)
 					res.render('detail', {poll:doc, symbol: u, id:false, user: userName})
 				}
 			})			
