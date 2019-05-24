@@ -78,7 +78,7 @@ module.exports = function(app, passport) {
 		Poll.findOne({number:poll}, function(err, doc) {
 			if (err) console.log(err);
 
-			User.findOne({github.id: doc.githubId}, function(err, gh) {
+			User.findOne({'github.id': doc.githubId}, function(err, gh) {
 				if (req.isAuthenticated()) {
 					var url = 'https://avatars3.githubusercontent.com/u/'+req.user.github.id+'?v=3&s=40'
 					var u = '<img src="'+url+'"/>'
