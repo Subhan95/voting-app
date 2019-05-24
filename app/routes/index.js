@@ -78,17 +78,19 @@ module.exports = function(app, passport) {
 		Poll.findOne({number:poll}, function(err, doc) {
 			if (err) console.log(err);
 
-			if (req.isAuthenticated()) {
-				var url = 'https://avatars3.githubusercontent.com/u/'+req.user.github.id+'?v=3&s=40'
-				var u = '<img src="'+url+'"/>'
-				var userName = req.user.github.username
-				res.render('detail', {poll:doc, symbol: u, id: true, user: userName})
-			}
-			else {
-				var u = '<i class="fa fa-github-square"></i>'
-				var userName = req.user.github.username
-				res.render('detail', {poll:doc, symbol: u, id:false, user: userName})
-			}
+			User.findOne({id: doc.githubId}, function(err, gh) {
+				if (req.isAuthenticated()) {
+					var url = 'https://avatars3.githubusercontent.com/u/'+req.user.github.id+'?v=3&s=40'
+					var u = '<img src="'+url+'"/>'
+					var userName = gh.username
+					res.render('detail', {poll:doc, symbol: u, id: true, user: userName})
+				}
+				else {
+					var u = '<i class="fa fa-github-square"></i>'
+					var userName = gh.username
+					res.render('detail', {poll:doc, symbol: u, id:false, user: userName})
+				}
+			})			
 		})
 	})
 
