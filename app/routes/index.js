@@ -17,7 +17,7 @@ module.exports = function(app, passport) {
 			if (err) console.log(err);
 			if (req.isAuthenticated()) {
 				var url = 'https://avatars3.githubusercontent.com/u/'+req.user.github.id+'?v=3&s=40'
-				var u = '<img src="'+url+'"/>'
+				var u = '<img class="profile-picture" src="'+url+'"/>'
 				res.render('list', {polls:doc, symbol: u, id: true})
 			}
 			else {
@@ -32,7 +32,7 @@ module.exports = function(app, passport) {
 	app.get('/mypolls', isLoggedIn, function(req, res){
 		Poll.find({githubId: req.user.github.id}, function(err, doc){
 			var url = 'https://avatars3.githubusercontent.com/u/'+req.user.github.id+'?v=3&s=40'
-			var u = '<img src="'+url+'"/>'
+			var u = '<img class="profile-picture" src="'+url+'"/>'
 			res.render('mypolls', {polls: doc, symbol: u})
 		})
 	})
@@ -43,7 +43,7 @@ module.exports = function(app, passport) {
 
 	app.get('/polls/new', isLoggedIn, function(req, res){
 		var url = 'https://avatars3.githubusercontent.com/u/'+req.user.github.id+'?v=3&s=40'
-			var u = '<img src="'+url+'"/>'
+			var u = '<img class="profile-picture" src="'+url+'"/>'
 		res.render('new', {symbol: u})
 	})	
 
@@ -81,7 +81,7 @@ module.exports = function(app, passport) {
 			User.findOne({'github.id': doc.githubId}, function(err, gh) {
 				if (req.isAuthenticated()) {
 					var url = 'https://avatars3.githubusercontent.com/u/'+req.user.github.id+'?v=3&s=40'
-					var u = '<img src="'+url+'"/>'
+					var u = '<img class="profile-picture" src="'+url+'"/>'
 					var userName = gh.github.username
 					// console.log(userName)
 					res.render('detail', {poll:doc, symbol: u, id: true, user: userName})

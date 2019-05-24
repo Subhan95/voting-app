@@ -30,3 +30,8 @@ a.delete-list-item {
 	background-color: #d9534f;
 	color: #fff;
 }
+
+img.profile-picture {
+	width: 50%;
+	height: 50%;
+}
